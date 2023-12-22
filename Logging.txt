@@ -1,0 +1,1 @@
+14:17:21.024 [http-nio-8080-exec-2] WARN  c.p.restful.training.DefaultRestApi - testing logging color

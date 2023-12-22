@@ -1,0 +1,34 @@
+<configuration>
+
+    <property name="LOG_PATH" value="C:/Users/bben636/Desktop/ILM/Projekti sa kurseva/Resftul_Elasticsearch/Logging.txt" />
+
+    <!-- Console Appender -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %highlight(%-5level) %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File Appender -->
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_PATH}</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root Logger -->
+    <root level="info">
+        <appender-ref ref="console" />
+    </root>
+        <!-- color conversion -->
+    <conversionRule conversionWord="highlight" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+
+
+    <!-- Logger for WARN and ERROR levels -->
+    <logger name="com.practical.restful.training" level="warn">
+        <appender-ref ref="file" />
+    </logger>
+
+</configuration>
