@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Form</title>
+</head>
+<body>
+
+<h2>Car Form</h2>
+
+<form id="carForm">
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="brand" required><br><br>
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required><br><br>
+
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" required><br><br>
+
+    <button type="button" onclick="submitCar()">Submit</button>
+</form>
+
+<script>
+    function submitCar() {
+        var brand = document.getElementById("brand").value;
+        var color = document.getElementById("color").value;
+        var type = document.getElementById("type").value;
+
+        var carData = {
+            "brand": brand,
+            "color": color,
+            "type": type
+        };
+
+        fetch('http://localhost:8080/api/car/v1/echo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(carData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Car successfully submitted!\nServer response:\n' + JSON.stringify(data));
+            console.log('Server response:', data);
+        })
+        .catch(error => {
+            alert('Error submitting car: ' + error.message);
+            console.error('Error:', error);
+        });
+    }
+</script>
+
+</body>
+</html>

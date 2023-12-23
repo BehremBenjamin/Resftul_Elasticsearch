@@ -19,7 +19,7 @@ public class DefaultRestApi {
     public String welcome() {
 
         logger.warn("testing logging color");
-        return "WELCOME TO SPRING BOOT !!!";
+        return "WELCOME msg";
     }
 
     @GetMapping("/time")
