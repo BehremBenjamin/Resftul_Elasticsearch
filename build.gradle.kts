@@ -23,6 +23,11 @@ dependencies {
 	implementation("org.apache.logging.log4j:log4j-core:2.14.1")
 	implementation("org.springframework.boot:spring-boot-starter")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch")
+	implementation("org.elasticsearch:elasticsearch:7.17.1")
+	implementation("org.springframework.data:spring-data-elasticsearch:4.2.4")
+	implementation("org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.1")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 }
 
 tasks.withType<Test> {
